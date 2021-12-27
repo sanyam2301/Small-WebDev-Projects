@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>timer</title>
+  </head>
+  <body>
+    <div class="timer">
+      <h1 id="watch">WELCOME LETS BEGIN</h1>
+      <button >
+        start
+    </button>
+      
+      <button onclick="stopTime()">stop</button>
+    </div>
+    <script>
+      let timerOn = true;
+      function sTime(rem) {
+        // min=parseInt(min);
+        // sec=parseInt(sec);
+        var min = Math.floor(rem / 60);
+        var sec = rem % 60;
+
+        min = min < 10 ? "0" + min : min;
+        sec = sec < 10 ? "0" + sec : sec;
+        document.getElementById("watch").innerHTML = `${min}:${sec}`;
+        rem--;
+        if (rem >= 0 && timerOn) {
+          setTimeout(function () {
+            sTime(rem);
+          }, 1000);
+          if (!timerOn) {
+            return;
+          }
+        }
+      }
+
+      function stopTime() {
+        timerOn = false;
+      }
+      sTime(8);
+      // setInterval(start, interval);
+    </script>
+  </body>
+</html>

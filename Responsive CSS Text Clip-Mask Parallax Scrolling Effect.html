@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive CSS Text Clip-Mask Parallax Scrolling Effect</title>
+  </head>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      outline: none;
+      font-family: "Poppins", sans-serif;
+    }
+    section {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 50px 0px;
+      flex-direction: column;/* so as the flex is column direction */
+    }
+    section .content {
+      text-align: center;
+    }
+    section .content h2 {
+      font-size: 24vw;
+      text-transform: uppercase;
+      font-weight: 900;
+      line-height: 1em;
+      -webkit-background-clip: text;/* to merge the background of text or pseudo selectors::before background-color */
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-attachment: fixed;  /* so the background phot is at same place when scrolled upon  */
+    }
+    section:nth-child(1) .content h2 {
+      background-image: url("/img/fire.jpg");
+    }
+    section:nth-child(2) .content h2 {
+      background-image: url("/img/water.jpg");
+    }
+    section:nth-child(3) .content h2 {
+      background-image: url("/img/ice.jpg");
+    }
+    section:nth-child(4) .content h2 {
+      background-image: url("/img/sand.jpg");
+    }
+    section .content p {
+      max-width: 800px;  /* center it  middle and give responsive  */
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    section .content a {
+      text-decoration: none;
+      display: inline-block; /* so both height ans width can be given */
+      padding: 10px 20px;
+      border: 2px solid #000;
+      color: #000;
+      margin-top: 20px;
+    }
+  </style>
+  <body>
+    <section>
+      <div class="content">
+        <h2>Fire</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, ipsam
+          quidem ad, saepe minima blanditiis optio dolore neque tempore dicta
+          voluptatem corrupti ea tenetur a. Voluptate, soluta voluptates. Lorem
+          ipsum, dolor sit amet consectetur adipisicing elit. Aliquid voluptate
+          quos totam praesentium ipsum consectetur nostrum cupiditate obcaecati
+          perferendis optio expedita enim ex sequi et cum, eius dolorum
+          consequuntur error. Explicabo vel quibusdam minus. Lorem ipsum dolor
+          sit amet consectetur adipisicing elit. Quo quis id corrupti doloremque
+          dolor exercitationem laudantium corporis. Sapiente perspiciatis quae
+          nisi beatae cumque.
+        </p>
+        <a href="">Read More</a>
+      </div>
+    </section>
+    <section>
+      <div class="content">
+        <h2>Water</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, ipsam
+          quidem ad, saepe minima blanditiis optio dolore neque tempore dicta
+          voluptatem corrupti ea tenetur a. Voluptate, soluta voluptates. Lorem
+          ipsum, dolor sit amet consectetur adipisicing elit. Aliquid voluptate
+          quos totam praesentium ipsum consectetur nostrum cupiditate obcaecati
+          perferendis optio expedita enim ex sequi et cum, eius dolorum
+          consequuntur error. Explicabo vel quibusdam minus. Lorem ipsum dolor
+          sit amet consectetur adipisicing elit. Quo quis id corrupti doloremque
+          dolor exercitationem laudantium corporis. Sapiente perspiciatis quae
+          nisi beatae cumque.
+        </p>
+        <a href="">Read More</a>
+      </div>
+    </section>
+    <section>
+      <div class="content">
+        <h2>Ice</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, ipsam
+          quidem ad, saepe minima blanditiis optio dolore neque tempore dicta
+          voluptatem corrupti ea tenetur a. Voluptate, soluta voluptates. Lorem
+          ipsum, dolor sit amet consectetur adipisicing elit. Aliquid voluptate
+          quos totam praesentium ipsum consectetur nostrum cupiditate obcaecati
+          perferendis optio expedita enim ex sequi et cum, eius dolorum
+          consequuntur error. Explicabo vel quibusdam minus. Lorem ipsum dolor
+          sit amet consectetur adipisicing elit. Quo quis id corrupti doloremque
+          dolor exercitationem laudantium corporis. Sapiente perspiciatis quae
+          nisi beatae cumque.
+        </p>
+        <a href="">Read More</a>
+      </div>
+    </section>
+    <section>
+      <div class="content">
+        <h2>Sand</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, ipsam
+          quidem ad, saepe minima blanditiis optio dolore neque tempore dicta
+          voluptatem corrupti ea tenetur a. Voluptate, soluta voluptates. Lorem
+          ipsum, dolor sit amet consectetur adipisicing elit. Aliquid voluptate
+          quos totam praesentium ipsum consectetur nostrum cupiditate obcaecati
+          perferendis optio expedita enim ex sequi et cum, eius dolorum
+          consequuntur error. Explicabo vel quibusdam minus. Lorem ipsum dolor
+          sit amet consectetur adipisicing elit. Quo quis id corrupti doloremque
+          dolor exercitationem laudantium corporis. Sapiente perspiciatis quae
+          nisi beatae cumque.
+        </p>
+        <a href="">Read More</a>
+      </div>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Custom-radio-button</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background-color: #111;
+      flex-direction: column;
+    }
+    input[type="radio"] {
+      position: relative;
+      width: 240px;
+      height: 80px;
+      margin: 20px;
+      outline: none;
+      background-color: #111;
+      /* appearance: none; */
+      -webkit-appearance: none;
+      cursor: pointer;
+      border-radius: 40px;
+      box-shadow: -5px -5px 20px rgba(255, 255, 255, 0.1),
+        5px 5px 10px rgba(0, 0, 0, 1),
+        inset -2px -2px 5px rgba(255, 255, 255, 0.1),
+        inset 2px 2px 5px rgba(0, 0, 0, 0.5), 0 0 0 2px #1f1f1f;
+      transition: 0.5s;
+    }
+
+    input[type="radio"]:checked {
+      background: #20b7ff;
+    }
+    input[type="radio"]::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 140px;/* to create marker circle */
+      height: 80px;
+      border-radius: 40px;
+      background: linear-gradient(to top, #000, #555);
+      transition: 0.5s;
+      box-shadow: 0 0 0 1px #2323;
+      transform: scale(0.98, 0.96);
+    }
+    input[type="radio"]:checked:before {
+      left: 105px; /* move  marker circle  to left of checkbox*/
+    }
+    input[type="radio"]::after {
+      content: "";
+      position: absolute;
+      left: 120px;
+      width: 8px; /* to create small  marker circle */
+      top: calc(50% - 4px); /* to calc in center of button */
+      height: 8px;
+      background: #445545;
+      border-radius: 50%;
+      transition: 0.5s;
+    }
+    input[type="radio"]:checked:after {
+      left: calc(120px + 105px);/* so that light small marker circle is always with button input */
+      background: #20b4ff;
+      box-shadow: 0 0 5px #20b4ff, 0 0 15px #20b4ff,0 0 30px #20b4ff;
+    }
+  </style>
+  <body>
+    <label><input type="radio" name="btn" /></label>
+    <label><input type="radio" name="btn" /></label>
+  </body>
+</html>

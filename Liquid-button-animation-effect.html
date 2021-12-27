@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap"
+      rel="stylesheet"
+    />
+    <title>Liquid-button-animation-effect</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Source Code Pro", monospace;
+      }
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background-color: #0c0c0c;
+      }
+      a {
+        position: relative;
+        padding: 20px 50px;
+        text-decoration: none;
+        display: block;/* so the whole button/link/anchor(as there is no button tag) is block or nor an inline object ,hence can be given a width-height */
+        width: 200px;
+        text-transform: uppercase;
+        overflow: hidden; /* so the material background or anything flowing outside is hidden */
+      }
+      a span {
+        position: relative;
+        font-size: 20px;
+        letter-spacing: 6px;
+        color: #fff;
+        z-index: 1;
+      }
+      a .liquid {
+        position: absolute;
+        top: -80px;
+        left: 0;
+        width: 200px;
+        height: 200px;
+        background: #4973ff; /* blue background which is greater in size than seen here as overflow is hidden */
+        box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
+        transition: 0.5s;
+      }
+      a:hover .liquid{
+        top: -120px; /* to move downwards */
+      }
+      a .liquid::before,
+      a .liquid::after {
+        content: "";
+        position: absolute;
+        width: 200%;
+        height: 200%;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, -75%);
+
+        /* background: #000; */
+      }
+      a .liquid::before {
+        border-radius: 45%;
+        background-color: rgba(20, 20, 20, 1); /* to form circular shapes that are in front of blue colour to give wavy effect */
+        animation: b-wave 5s linear infinite;
+      }
+      a .liquid::after {
+        border-radius: 40%;
+        background-color: rgba(20, 20, 20, 0.7); /* second layer of circle shape moving because of animation with lesser opacity */
+        animation: b-wave 10s linear infinite;
+      }
+      @keyframes b-wave {
+        0% {
+          transform: translate(-50%, -75%) rotate(0deg);
+        }
+
+        100% {
+          transform: translate(-50%, -75%) rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a href=""
+      ><span>Button</span>
+      <div class="liquid"></div
+    ></a>
+  </body>
+</html>

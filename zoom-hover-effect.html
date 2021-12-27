@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+      #img-box {
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+        transition: transform 0.4s;
+        width: 1200px;
+        height: 800px;
+      }
+      #img {
+        background: url("/img/restaurant-bg.jpg") fixed center;
+        transition: transform 0.4s;
+      }
+      #img:hover {
+        transform: scale(2);
+        border: 2px solid #fff;
+      }
+
+      /* comments for me JAIN
+this zoom effect is done by using grid property
+in which we divide the image background in two 100 different parts by using js and fixed property in background utilizes the center of 100 parts of image .n
+ow these parts are divided by using grid -template-column repeat 10 where 10 is of columns in one row therefor they lined themselves up in such  a way*/
+
+    </style>
+  </head>
+  <body>
+    <div id="img-box"></div>
+    <script>
+      const box = document.getElementById("img-box");
+      box.innerHTML = '<div id="img"></div>'.repeat(100);
+    </script>
+  </body>
+</html>

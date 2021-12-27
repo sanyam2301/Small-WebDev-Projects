@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,600&display=swap" rel="stylesheet">
+    <title>wave-effect</title>
+</head>
+<style>
+*{
+margin: 0;padding:0;
+box-sizing: border-box;
+font-family: 'Poppins', sans-serif;
+}
+body{
+    display: flex;
+    min-height:100vh;
+    align-items: center;
+    justify-content: center;
+background-color:black;
+}
+.content{position: relative;}
+.content h2{
+    position: absolute;
+    /* color:#fff; */
+font-size:20em;
+    transform: translate(-50%,-50%);
+    text-transform: uppercase;
+}
+.content h2:nth-child(1){
+    color:transparent;
+    -webkit-text-stroke:2px  #03a9f4;
+}
+.content h2:nth-child(2){
+    color:#03a9f4;
+    animation: wave 4.3s ease-in-out infinite;
+}
+@keyframes wave {
+    0%,100%{
+        clip-path: polygon(60% 48%, 87% 41%, 100% 35%, 100% 70%, 100% 100%, 50% 100%, 0 100%, 0% 70%, 14% 66%, 32% 53%);
+    }
+    50%{
+        clip-path: polygon(73% 48%, 90% 53%, 100% 53%, 100% 70%, 100% 100%, 50% 100%, 0 100%, 0 67%, 0 32%, 42% 43%);
+    }
+}
+/* to achieve  wave like effect mainly we use clip path animation i.e changing the shape of polygon. it is done infinite times    */
+/* we change the clip path for second word which is same as first that is they are overlapped on each other using position absolute to common class of them  */
+/* we use webkit text stroke property to provide border to one of the word and give it transparency so as to highlight the change in second word animation */
+
+</style>
+<body>
+<div class="content">
+<h2>Water</h2>
+<h2>Water</h2>
+</div>
+</body>
+</html>

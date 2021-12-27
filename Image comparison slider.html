@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image comparison slider</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: #070c15;
+    }
+    .imgbox {
+      position: relative;
+      width: 500px;
+      overflow: hidden;
+      height: 500px;
+    }
+    .imgbox textarea {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      max-width: 100%;
+      background: url("/img/sand.jpg");
+      resize: none;
+      outline: none;
+      border: none;
+      filter: grayscale(1);
+      /* mainly the two text area with background having different
+      grayscale and one of them is overlapped over other,idea is used */
+    }
+    .imgbox textarea:nth-child(2) {
+      filter: grayscale(0);
+      width: 250px;
+      border-right: 2px solid #ffe;
+      resize: horizontal;
+    }
+  </style>
+  <body>
+    <div class="imgbox">
+      <textarea readonly></textarea>
+      <textarea readonly></textarea>
+    </div>
+  </body>
+</html>

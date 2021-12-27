@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3d-background-animation-effect</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    section {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden; /* so background does not acquire more space than needed */
+    }
+    .pattern {
+      position: relative;
+      transform-style: preserve-3d; /* this helps the child elements or as here the two faces to preserve the 3d formation */
+      perspective: 1000px; /* perspective determines the distance between element and its child from the screen this helps in giving of 3d effects and different angles to same effect */
+      /* as when perspective is set 500px or more it feels the point of view of someone moving along the axis and at a lower level than described here */
+      animation: side-rotate 10s ease-in-out infinite;
+    }
+    @keyframes side-rotate {
+      0%,
+      100% {
+        transform: scale(1.6) rotate(-15deg);/* to increase size of pattern and rotation or movement effect  */
+      }
+      50% {
+        transform: scale(1.6) rotate(15deg);
+      }
+    }
+    .pattern .face {
+      position: relative; 
+      width: 100%;
+      height: 50vh;/* both faces as 50vh so as cover the whole screen of 100vh */
+      background: url("/img/check-bg.jpg");
+      background-size: 100px 100px;
+      /* the size of background clip , it helps in creating more detail or small backgrounds pattern */
+      animation: side-move 1s linear infinite;
+    }
+    @keyframes side-move {
+      0% {
+        background-position: 0;
+      }
+      100% {
+        background-position: 100px; /* it is so that animation moves its background position and gives effect of moving the background */
+      }
+    }
+    .pattern .face.face2 {
+      height: 100vh;  /* so as the face which is horizontal now is full view.  */
+      transform-origin: top;/* so as it rotated about origin */
+      transform: rotateX(70deg);
+    }
+    .pattern .face.face1::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 125px;
+      background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), transparent);/* to create a shadow on face1 at the intersection of two faces */
+    }
+  </style>
+  <body>
+    <section>
+      <div class="pattern">
+        <div class="face face1"></div>
+        <div class="face face2"></div>
+      </div>
+    </section>
+  </body>
+</html>

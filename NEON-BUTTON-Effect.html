@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap"
+      rel="stylesheet"
+    />
+    <title>NEON-BUTTON-Effect</title>
+  </head>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background-color: #181414;
+      font-family: "Source Code Pro", monospace;
+    }
+    a {
+      text-decoration: none;
+      position: relative;
+      padding: 15px 30px;
+      display: inline-block; /* as this property does not form  new line but also allows to adjust the width , height  */
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 30px;
+      font-weight: bolder;
+      overflow: hidden;
+      transition: 0.5s;
+      color: #fff;
+    }
+    a:hover {
+      color: #255785;
+      background: #2196f3;
+      box-shadow: 0 0 10px #2196f3, 0 0 40px #2196f3, 0 0 80px #2196f3,
+        0 0 100px #2196f3;
+      /* multiple box-shadow with increasing blur radius gives a light blurring effect as in  for example : light bulb  */
+      transition-delay: 1s; /* this delay allows for line motion to be completed */
+    }
+    a span {
+      display: block; /* this allows the change in width and height of span i.e your 4 lines moving */
+      position: absolute;
+    }
+    a span:nth-child(1) {
+      top: 0;
+      left: -100%; /* starting point for line -1 acts co-ordinates  */
+      width: 100%;
+      height: 2px; /* this acts as the dimensions for  horizontal lines  */
+      background: linear-gradient(90deg, transparent, #2196f3);
+    }
+    a:hover span:nth-child(1) {
+      left: 100%; /* new co-ordinate for line-1 */
+      transition: 1s;
+      /* all span transition completes in one second i.e delay in hover effect */
+    }
+    a span:nth-child(2) {
+      top: -100%;
+      right: 0; /* starting point for line -2 acts co-ordinates  */
+      width: 2px;
+      height: 100%; /* this acts as the dimensions for  vertical lines  */
+      background: linear-gradient(180deg, transparent, #2196f3);
+    }
+    a:hover span:nth-child(2) {
+      top: 100%; /* new co-ordinate for line-2 */
+      transition: 1s;
+      transition-delay: 0.25s; /* this delay so that it takes place after line-1 */
+    }
+    a span:nth-child(3) {
+      bottom: 0;
+      right: -100%; /* starting point for line -3 acts co-ordinates  */
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(270deg, transparent, #2196f3);
+    }
+    a:hover span:nth-child(3) {
+      right: 100%; /* new co-ordinate for line-3 */
+
+      transition: 1s;
+      transition-delay: 0.5s; /* this delay so that effect comes after line-2 */
+    }
+    a span:nth-child(4) {
+      bottom: -100%;
+      left: 0; /* starting point for line -4 acts co-ordinates  */
+      width: 2px;
+      height: 100%;
+      background: linear-gradient(45deg, transparent, #2196f3);
+    }
+    a:hover span:nth-child(4) {
+      bottom: 100%; /* new co-ordinate for line-4 */
+      transition: 1s;
+      transition-delay: 0.75s; /* this delay causes all the lines to appear as one which moves from top returns back to the same point after which glowing effect takes place */
+    }
+  </style>
+  <body>
+    <a href="">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      Neon Button
+    </a>
+  </body>
+</html>

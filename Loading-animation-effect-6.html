@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loading-animation-effect-6</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #121213;
+    }
+    .loader {
+      position: relative;
+      -webkit-box-reflect: below -28px linear-gradient(transparent, #0002);/* to create a reflect of text which is transparent that is same colour as text and with little opacity */
+    }
+    .loader::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 2px;
+      height: 100%; /* to create a cursor such width and heights used */
+      background: #34f2f4;
+      animation: blinkCursor 0.8s steps(3) infinite; /* steps is timing function that starts in steps and duration is such that. */
+    }
+    @keyframes blinkCursor {
+      0%,
+      75% {
+        opacity: 1;
+      }
+      76%,
+      100% {
+        opacity: 0;
+      }
+    }
+    .loader h2 {
+      position: relative;
+      color: #34f1f4;
+      letter-spacing: 5px;
+      font-size: 4em;
+      text-transform: uppercase;
+      animation: typing 8s steps(10) infinite;/* 10 steps as the characters in typing animation  are 10 */
+      overflow: hidden;/* to hide the text which is outside the h2 container */
+    }
+    @keyframes typing {
+      0%,90%,100%{
+        width: 0px;
+      }
+      30%,60% {
+        width: 403.81px;/* the original  width container used to create the width and is found using the devtools */
+      }
+    }
+  </style>
+  <body>
+    <div class="loader">
+      <h2>Loading...</h2>
+    </div>
+  </body>
+</html>

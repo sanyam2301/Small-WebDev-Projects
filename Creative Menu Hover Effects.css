@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Heebo:wght@300&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Heebo", sans-serif;
+}
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
+.nav ul {
+  position: relative;
+}
+.nav ul li {
+  text-align: center;
+  list-style: none;
+}
+.nav ul li a {
+  text-decoration: none;
+  color: #2f2f2f;
+  font-size: 3em;
+  padding: 4px 18px;
+  display: inline-flex;/* this provide better spacing between the anchor links */
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+  font-weight: 700;
+}
+.nav ul:hover li a {
+  color: #0002;
+}
+.nav ul li:hover a {
+  color: #000;
+  background-color: #fff;
+}
+.nav ul li a::before {
+  /* this is to create a background effects of texts appearing in background */
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  font-size: 5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  z-index: -1;
+  opacity: 0;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 500px; /* this is added so as when letter spacing is decreased it looks the letters come to together  */
+  transition: letter-spacing 0.5s, left 0.5s;
+  -webkit-transition: letter-spacing 0.5s, left 0.5s;
+  -moz-transition: letter-spacing 0.5s, left 0.5s;
+  -ms-transition: letter-spacing 0.5s, left 0.5s;
+  -o-transition: letter-spacing 0.5s, left 0.5s;
+}
+.nav ul li a:hover:before {
+  content: attr(data-text); /* whatever is written in attribute it will be display the  text as bg */
+  opacity: 1;
+  letter-spacing: 10px;
+  left: 50%;
+  width: 1800px;
+  height: 1800px;
+}
+
+.nav ul li:nth-child(1) a:before {
+  background: #81ecec;
+}
+.nav ul li:nth-child(2) a:before {
+  background: #ff7676;
+}
+.nav ul li:nth-child(3) a:before {
+  background: #55ef6c;
+}
+.nav ul li:nth-child(4) a:before {
+  background: #a29bfe;
+}
+.nav ul li:nth-child(5) a:before {
+  background: #fd79a8;
+}
+.nav ul li:nth-child(6) a:before {
+  background: #ffeaa7;
+}

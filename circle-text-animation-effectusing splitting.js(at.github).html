@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>circle-text-animation-effect|using splitting.js(at.github)</title>
+  </head>
+  <style>
+    /* the splitting js file is used to dived or split the character of a text,it does not create a animation 
+    but instead divides the  text and create a special index char index for it which can be referred to give a special animation 
+    as circle text animation as var char is used */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: monospace;
+    }
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: #633ab4;
+    }
+    .circle {
+      transform-style: preserve-3d;
+      animation: mouse-spin 8s linear infinite;
+    }
+    @keyframes mouse-spin {
+      0% {
+        transform: perspective(1000px) rotateY(360deg) rotateX(15deg);
+      }
+      100% {
+        transform: perspective(1000px) rotateY(0deg) rotateX(15deg);
+      }
+    }
+    .circle .char {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: #fff;
+      color: #35146f;
+      font-size: 4em;
+      padding: 5px 12px;
+      border-bottom: 4px solid #35146f;
+      border-top: 4px solid #35146f;
+      transform-style: preserve-3d;
+      transform-origin: center;
+      transform: rotateY(calc(var(--char-index) * 39deg)) translateZ(200px);/* the special style variable --char index */
+    }
+  </style>
+  <body>
+    <div class="circle" data-splitting>Circle-Text-Animation-Effects-</div>
+  </body>
+  <script src="/special_js_files/splitting.js"></script>
+  <script>
+    Splitting();
+  </script>
+</html>

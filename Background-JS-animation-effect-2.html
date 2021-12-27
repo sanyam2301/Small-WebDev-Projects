@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Background-JS-animation-effect-2</title>
+  </head>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Oxygen+Mono&display=swap");
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Oxygen Mono", monospace;
+    }
+    section {
+      position: relative;
+      height: 100vh;
+      width: 100%;
+      background-color: #ff1161;
+      transform-style: preserve-3d; /* to preserve the 3d effect of section and its childe elements such as blocks */
+      perspective: 500px;
+    }
+    section h2 {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      text-align: center;
+      line-height: 100vh;
+      font-size: 10vw;
+      color: #fff;
+      font-weight: 700;
+    }
+    .banner {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .banner .blocks {
+      position: relative;
+      width: 5vw;
+      height: 5vh;
+      display: block;
+      animation: movement 2s ease-in-out forwards;
+      animation-delay: 1s;
+    }
+    @keyframes movement {
+      0% {
+        transform: translateZ(2000px);
+        background: url("/img/bg-city-2.jpg");
+        background-attachment: fixed;
+        background-position: center; /* to create the effect of same picture in different blocks  */
+        background-size: cover;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+      }
+      100% {
+        transform: translateZ(0px);
+        background: url("/img/bg-city-2.jpg");
+        background-attachment: fixed;
+        background-position: center;
+        background-size: cover;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        box-shadow: 0 5px 15px rgba(0, 0, 0);
+      }
+    }
+    section.active .banner .blocks {
+      animation: movement2 2s ease-in-out forwards;
+      background: url("/img/bg-city-2.jpg");
+      background-attachment: fixed;
+      background-position: center;
+      background-size: cover;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    }
+    @keyframes movement2 {
+        0% {
+        transform: translateZ(2000px);
+        background: url("/img/bg-city-2.jpg");
+        background-attachment: fixed;
+        background-position: center;
+        background-size: cover;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+      }
+      100% {
+        transform: translateZ(0px);
+        background: url("/img/bg-city-2.jpg");
+        background-attachment: fixed;
+        background-position: center;
+        background-size: cover;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        box-shadow: 0 5px 15px rgba(0, 0, 0);
+      }
+    }
+  </style>
+  <body>
+    <section>
+      <h2>JS Animation</h2>
+      <div class="banner">
+        <div class="blocks"></div>
+      </div>
+    </section>
+  </body>
+  <script>
+    const banner = document.getElementsByClassName("banner")[0];
+    const blocks = document.getElementsByClassName("blocks");
+
+    for (var i = 1; i < 400; i++) {
+      banner.innerHTML += " <div class='blocks'></div>";
+      const duration = Math.random() * 5;// to create a random  effect 
+      blocks[i].style.animationDuration = ` 2 + ${duration}s`;
+      blocks[i].style.animationDelay = `${duration}s`;
+    }
+    const section = document.querySelector('section');
+    setTimeout(function () {
+      section.classList.add('active');
+    }, 14000);
+    //add class active for 14 sec;
+    // the active class is used to create a back or reverse effect
+  </script>
+</html>

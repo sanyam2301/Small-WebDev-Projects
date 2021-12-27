@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loading-animation-effect-5</title>
+  </head>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Inconsolata&display=swap");
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    section {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      width: 100%;
+      min-height: 100vh;
+      background: #001300;
+      animation: change-bg 5s linear infinite;
+    }
+    @keyframes change-bg {
+      0% {
+        filter: hue-rotate(0deg); /* color change with 0 deg to 720 deg */
+      }
+      100% {
+        filter: hue-rotate(720deg);
+      }
+    }
+    section .loader {
+      position: relative;
+      display: flex;
+    }
+    section .loader .dot {
+      position: relative;
+      display: block;
+      width: 20px;
+      height: 20px;
+      background-color: #0fff0f;
+      box-shadow: 0px 0px 10px #0fff0f, 0px 0px 20px #0fff0f,
+        0px 0px 40px #0fff0f, 0px 0px 60px #0fff0f, 0px 0px 80px #0fff0f,
+        0px 0px 100px #0fff0f, 0px 0px 120px #0fff0f; /* to give box -shadow around the other dots */
+      margin: 20px 10px;
+      border-radius: 50%;
+      transform: scale(0.2);
+      animation: dots 2s linear infinite;
+      animation-delay: calc(
+        0.1s * var(--i)
+      ); /* the variable --i:*num* mentioned in html structure where *num* is multiplied by time as (0.1). */
+    }
+    section .loader:last-child .dot {
+      animation-delay: calc(-0.1s * var(--i));/* the animation delay is minus which cause us to see the effect in reverse */}
+    @keyframes dots {
+      0% {
+        transform: scale(0.2);
+      }
+      10% {
+        transform: scale(1);
+      }
+      50%,
+      100% {
+        transform: scale(0.2);
+      }
+    }
+    section h2 {
+      color: #0fff0f;
+      font-family: "Inconsolata", monospace;
+      font-weight: 400;
+      letter-spacing: 10px;
+    }
+  </style>
+  <body>
+    <section>
+      <div class="loader">
+        <div class="dot" style="--i: 1"></div>
+        <div class="dot" style="--i: 2"></div>
+        <div class="dot" style="--i: 3"></div>
+        <div class="dot" style="--i: 4"></div>
+        <div class="dot" style="--i: 5"></div>
+        <div class="dot" style="--i: 6"></div>
+        <div class="dot" style="--i: 7"></div>
+        <div class="dot" style="--i: 8"></div>
+        <div class="dot" style="--i: 9"></div>
+        <div class="dot" style="--i: 10"></div>
+      </div>
+      <h2>Loading....</h2>
+      <div class="loader">
+        <div class="dot" style="--i: 1"></div>
+        <div class="dot" style="--i: 2"></div>
+        <div class="dot" style="--i: 3"></div>
+        <div class="dot" style="--i: 4"></div>
+        <div class="dot" style="--i: 5"></div>
+        <div class="dot" style="--i: 6"></div>
+        <div class="dot" style="--i: 7"></div>
+        <div class="dot" style="--i: 8"></div>
+        <div class="dot" style="--i: 9"></div>
+        <div class="dot" style="--i: 10"></div>
+      </div>
+    </section>
+  </body>
+</html>

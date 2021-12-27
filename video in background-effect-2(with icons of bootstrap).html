@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+    <title>video in background-effect-2(with icons of bootstrap)</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .banner {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      overflow: hidden;
+    }
+    .banner video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+    .banner i.fa {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background: #fff;
+      font-size: 35vw;
+      text-align: center;
+      color: #000;
+      line-height: 100vh;
+      mix-blend-mode: screen;
+    }
+    .banner i.fa:hover {
+      color: #fff;
+      background-color: #000;
+    }
+    @media (max-width: 768px) {
+      .banner {
+        flex-direction: column;
+      }
+      .banner i.fa {
+        height: 50%;
+        line-height: 50vh;
+        font-size: 50vw;
+      }
+    }
+  </style>
+  <body>
+    <div class="banner">
+      <video autoplay loop muted>
+        <source src="/video/video-bg-statue.mp4" type="video/mp4" />
+      </video>
+      <i class="fa fa-facebook" aria-hidden="true"></i>
+      <i class="fa fa-twitter" aria-hidden="true"></i>
+    </div>
+  </body>
+</html>

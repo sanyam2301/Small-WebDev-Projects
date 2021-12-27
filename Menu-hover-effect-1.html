@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu-hover-effect-1</title>
+  </head>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #262655;
+      display: flex;
+      align-items: center;
+      justify-content: center; /* these properties sets the nav bar in center of page with view height 100 */
+      height: 100vh;
+    }
+    .nav-bar {
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+    .list-item {
+      list-style: none;
+      margin: 0 20px;
+      transition: 0.5s;
+    }
+    .list-item a {
+      text-decoration: none;
+      display: block; /* display block prop very crucial as the default display is inline for anchors therefore effect of transform of scale is not observed if this is omitted */
+      position: relative;
+      transition: 0.5s;
+      text-transform: uppercase;
+      padding: 5px;
+      font-size: 25px;
+      color: #fff;
+    }
+    .nav-bar:hover .list-item a {
+      transform: scale(1.5);
+      filter: blur(5px);
+      opacity: 0.2; /* this is  in order to give blurry and enlarge effect to whole nav menu at once */
+    }
+    .nav-bar .list-item a:hover {
+      transform: scale(2);
+      filter: blur(0);
+      opacity: 1; /* the prop is overwritten by specific use of anchor tags in selectors therefore we do not have to use nth child here  */
+      /* .Also because user can hover on any one anchor tag at one time only */
+    }
+    .nav-bar .list-item a::before {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: transform 0.5s;
+      transform-origin: right; /* origin is the prop from where effects starts to show or ends when a hover property is removed or is not active at moment .this makes the button or menu item background end in right side */
+      transform: scaleX(0);
+      background-color: #ff497c;
+      z-index: -1; /* this is done so that background of anchor items or list items can easily be transformed in their own specific selectors without changing the text's property */
+    }
+    .nav-bar .list-item a:hover:before {
+      transition: transform 0.5s;
+      transform-origin: left; /* the origininal origin defined is right which is overwritten as left so effect starts from left and when it is not on hover it ends on right side of the item */
+      transform: scaleX(1);
+      background-color: #ff497c;
+    }
+  </style>
+  <body>
+    <ul class="nav-bar">
+      <li class="list-item"><a href=""> Home </a></li>
+      <li class="list-item"><a href=""> About Us </a></li>
+      <li class="list-item"><a href=""> Services </a></li>
+      <li class="list-item"><a href=""> Portfolio </a></li>
+      <li class="list-item"><a href=""> Our Team </a></li>
+      <li class="list-item"><a href=""> Contact us </a></li>
+    </ul>
+  </body>
+</html>

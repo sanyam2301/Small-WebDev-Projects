@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loading-animation-effect-1</title>
+  </head>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background-color: #2196f3;
+    }
+    .loader {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100vh;
+      position: relative;
+    }
+    .loader span {
+      width: 40px;
+      height: 400px;
+      margin: 0 25px;
+      /* background-color: #262626; */
+      animation: loading 1.5s linear infinite;
+    }
+    .loader span:nth-child(1) {
+      animation-delay: 0s;
+    }
+    .loader span:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+    .loader span:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+    .loader span:nth-child(4) {
+      animation-delay: 0.6s;
+    }
+    .loader span:nth-child(5) {
+      animation-delay: 0.8s;
+    }
+    .loader span:nth-child(6) {
+      animation-delay: 1s;
+    }
+    .loader span:nth-child(7) {
+      animation-delay: 1.2s;
+    }
+    .loader span:nth-child(8) {
+      animation-delay: 1.4s;
+    }
+
+    @keyframes loading {
+      0% {
+        box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        transform: translate(-50px) scale(1);
+      }
+      50% {
+        box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.5);
+        opacity: 1;
+        transform: translate(0px) scale(1.4);
+      }
+      100% {
+        box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        transform: translate(50px) scale(1);
+      }
+    }
+
+/* Loading-animation-loading-boxes moving is achieved by using box
+    shadow,opacity and translate property in different keyframes
+   they are position so using flex properties only each of the span
+     child which makes the box is given animation delay
+ of increasing time so as to depict a effect of loading. */
+  </style>
+  <body>
+    <div class="loader">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </body>
+</html>

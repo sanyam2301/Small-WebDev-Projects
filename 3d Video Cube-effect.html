@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3d Video Cube-effect</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      background-color: #000;
+    }
+    section {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+    }
+    section .box {
+      position: absolute;
+      top: calc(50% - 200px); /* this is used as in pace of translate prop which used to translate the box in center  */
+      left: calc(50% - 200px);/* this calculates 50% of parent element and subtract 200px from the calculated value thereby dynamically using the position */
+      width: 400px;
+      height: 400px;
+      transform-style: preserve-3d;
+
+    }
+    section .box .in-box {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transform: rotateX(-20deg) rotateY(25deg) translate3d(-75px, -50px, 150px); /* to  change position of child elements with it  */
+    }
+    section .box .in-box span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 1px solid rgba(0, 0, 0, 0.1);/* this is used for creating 3 sides as  3 span for view */
+      background: #ccc;
+    }
+    section .box .in-box span video {
+      filter: blur(0px);
+    }
+    section video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: blur(20px);
+    }
+    section .box .in-box span:nth-child(1) {
+      transform: rotateX(0deg) translate3d(0, 0, 200px);/* first side in view */
+    }
+    section .box .in-box span:nth-child(2) {
+      transform: rotateY(90deg) translate3d(0, 0, -200px);/* second side Top view */
+    }
+    section .box .in-box span:nth-child(2) video {
+      transform: rotateY(180deg);/* so as the video in same direction as the other 2 sides */
+    }
+    section .box .in-box span:nth-child(3) {
+      transform: rotateX(90deg) translate3d(0, 0, 200px);/* third side view */
+    }
+  </style>
+  <body>
+    <section>
+      <video src="/video/guns-shoot-vid.mp4" autoplay="" loop=""></video>
+      <div class="box"><!-- the video which plays in background as blurred -->
+        <div class="in-box">
+          <span
+            ><video src="/video/guns-shoot-vid.mp4" autoplay="" loop=""></video
+          ></span>
+          <span
+            ><video src="/video/guns-shoot-vid.mp4" autoplay="" loop=""></video
+          ></span>
+          <span
+            ><video src="/video/guns-shoot-vid.mp4" autoplay="" loop=""></video
+          ></span>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

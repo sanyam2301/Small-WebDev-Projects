@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Glassmorphism Login Form</title>
+    <!-- this may be used as standard centered form  -->
+  </head>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+    body {
+      overflow: hidden;
+    }
+    section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: linear-gradient(to bottom, #f1f4f9, #dff1ff);
+    }
+    section .color {
+      filter: blur(150px);
+      position: absolute;
+    }
+    section .color:nth-child(1) {
+      top: -350px;
+      width: 600px;
+      height: 600px;
+      background: #af359b;
+    }
+    section .color:nth-child(2) {
+      bottom: -250px;
+      right: 100px;
+      width: 500px;
+      height: 500px;
+      background: #affd87;
+    }
+    section .color:nth-child(3) {
+      bottom: 40px;
+      right: 500px;
+      width: 300px;
+      height: 300px;
+      background: #00d1ff;
+    }
+    .box .square {
+      position: absolute;
+      backdrop-filter: blur(5px);
+      box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      border-right: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      animation: move 10s linear infinite;
+      animation-delay: calc(var(--i) * -1s);
+    }
+    @keyframes move {
+      0%,
+      100% {
+        transform: translateY(-40px) translateX(15px);
+      }
+
+      50% {
+        transform: translateY(40px) translateX(0px);
+      }
+    }
+    .box .square:nth-child(1) {
+      top: 50px;
+      right: 460px;
+      width: 100px;
+      height: 100px;
+    }
+    .box .square:nth-child(2) {
+      top: 250px;
+      left: 390px;
+      width: 120px;
+      height: 120px;
+      z-index: 2;
+    }
+    .box .square:nth-child(3) {
+      bottom: 150px;
+      right: 400px;
+      width: 85px;
+      height: 85px;
+      z-index: 2;
+    }
+    .box .square:nth-child(4) {
+      bottom: 80px;
+      left: 550px;
+      width: 55px;
+      height: 55px;
+    }
+    .box .square:nth-child(5) {
+      top: 60px;
+      left: 500px;
+      width: 70px;
+      height: 70px;
+    }
+    section .box .container {
+      position: relative;
+      width: 400px;
+      min-height: 400px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(5px);
+      box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      border-right: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    section .box .container .form {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      padding: 40px;
+    }
+    .form h2 {
+      position: relative;
+      color: #fff;
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-bottom: 40px;
+    }
+    .form h2::before {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 25%;
+      height: 4px;
+      background-color: #fff;
+    }
+    .form .inputbox {
+      width: 100%;
+      margin-top: 20px;
+    }
+    .form .inputbox input {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      outline: none;
+      padding: 10px 20px;
+      border-radius: 40px;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      border-right: 1px solid rgba(255, 255, 255, 0.2);
+      font-size: 16px;
+      letter-spacing: 1px;
+      color: #fff;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    .form .inputbox input::placeholder {
+      color: #fff;
+    }
+    .form .inputbox input[type="submit"] {
+      background-color: #fff;
+      max-width: 100px;
+      color: #999;
+      margin-bottom: 20px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .forget {
+      margin-top: 5px;
+      color: #fff;
+    }
+    .forget a {
+      color: #fff;
+      font-weight: 600;
+    }
+  </style>
+  <body>
+    <section>
+      <div class="color"></div>
+      <div class="color"></div>
+      <div class="color"></div>
+      <div class="box">
+        <div class="square" style="--i: 0"></div>
+        <div class="square" style="--i: 1"></div>
+        <div class="square" style="--i: 2"></div>
+        <div class="square" style="--i: 3"></div>
+        <div class="square" style="--i: 4"></div>
+        <div class="container">
+          <div class="form">
+            <h2>Login Form</h2>
+            <form action="">
+              <div class="inputbox">
+                <input type="text" placeholder="Username" />
+              </div>
+              <div class="inputbox">
+                <input type="password" placeholder="Password" />
+              </div>
+              <div class="inputbox">
+                <input type="submit" value="Login" />
+              </div>
+              <p class="forget">Forgot Password ? <a href="#">Click Here</a></p>
+              <p class="forget">
+                Don't have an account ? <a href="#">Sign up</a>
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

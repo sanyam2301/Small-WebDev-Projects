@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neumorphism-card-UI-hover-effect</title>
+    <!-- Neumorphism UI Trend is a term most often used in graphical user interface design to describe interface objects that mimic their
+      real-world counterparts in how they appear and/or how the user can interact with them.
+      Her it is used as creating cards which feels as f they are pushed into when they are hovered upn -->
+  </head>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&display=swap");
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Noto Sans JP", sans-serif;
+    }
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh; /* standard prop to center the a type of element in the page    */
+        width: 100%;
+      background: #ebf5fc;
+    }
+    .container {
+      position: relative;
+      display: flex;
+      justify-content: space-around; /* to create a better distance from the side of page and between the child elements of .container */
+      align-items: center;
+      width: 1100px;
+      flex-wrap: wrap; /* wrap is one basic prop which helps in responsive design as the width decreases of screen it wrap the elements in row direction such 
+      that firsts there are two elements in one row and then only one element in one row which makes its as
+       column flex direction media query use */}
+    .container .card {
+      width: 320px;
+      margin: 20px;
+      padding: 40px 30px;
+      background: #ebf5fc; /* same as body */
+      border-radius: 40px;
+      box-shadow: -6px -6px 20px rgba(255, 255, 255, 1),
+        6px 6px 20px rgba(0, 0, 0, 0.1);/* most imp as box shadow helps in creating neumorphism design.
+        the number are not absolute they can be changed but a combination of white and black to create a shadow outline is required */
+    }
+    .container .card:hover {
+      box-shadow: inset -6px -6px 10px rgba(255, 255, 255, 0.5),/* the white colour transparency is reduced as it give too much inset shadow */
+        inset 6px 6px 20px rgba(0, 0, 0, 0.05); /* the number of  transparency or alpha is changed but colours
+        are same and main effect is given by using inset box-shadow  */
+    }
+    .container .card .imgbx {
+      position: relative;
+      text-align: center;/* to center the image box i.e image itself */
+    }
+    .container .card .imgbx img {
+      max-width: 120px;
+    }
+    .container .card .contentBx {
+      position: relative;
+      text-align: center;
+      margin-top: 20px;
+    }
+    .container .card .contentBx h2 {
+      color: #32a3b3;
+      font-weight: 700;
+      font-size: 1.4em;
+      letter-spacing: 2px;
+    }
+    .container .card .contentBx p {
+      color: #32a3b3;
+    }
+    .container .card .contentBx a {
+      text-decoration: none;
+      display: inline-block;
+      padding: 10px 20px;
+      margin-top: 15px;
+      border-radius: 40px;
+      color: #32a3b3;
+      font-size: 16px;
+      box-shadow: -4px -4px 15px rgba(255, 255, 255, 1),
+        4px 4px 15px rgba(0, 0, 0, 0.1); /* repetition of same box shadow attributes as in card with reduced offsets and blur radius */
+    }
+    .container .card .contentBx a:hover {
+      box-shadow: inset -4px -4px 10px rgba(255, 255, 255, 0.5),
+        inset 4px 4px 10px rgba(0, 0, 0, 0.05);
+    }
+    .container .card .contentBx a span {
+      display: block;
+      transform: scale(0.98);
+    }
+    .container .card:hover .imgbx,
+    .container .card:hover .contentBx {
+      transform: scale(0.98);
+
+    }
+  </style>
+  <body>
+    <div class="container">
+      <div class="card">
+        <div class="imgbx"><img src="/img/design.png" alt="" /></div>
+        <div class="contentBx">
+          <h2>Design</h2>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam
+            cupiditate, reiciendis minus praesentium est et dolorum obcaecati
+            distinctio ipsum. Esse.
+          </p>
+          <a href="#"> <span>Read More </span> </a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="imgbx"><img src="/img/code.png" alt="" /></div>
+        <div class="contentBx">
+          <h2>Code</h2>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam
+            cupiditate, reiciendis minus praesentium est et dolorum obcaecati
+            distinctio ipsum. Esse.
+          </p>
+          <a href="#"> <span>Read More </span> </a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="imgbx"><img src="/img/launch.png" alt="" /></div>
+        <div class="contentBx">
+          <h2>Launch</h2>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam
+            cupiditate, reiciendis minus praesentium est et dolorum obcaecati
+            distinctio ipsum. Esse.
+          </p>
+          <a href="#"> <span>Read More </span> </a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

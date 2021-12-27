@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>distortion-effect</title>
+  </head>
+  <style>
+    * {
+      margin: 0px;
+      padding: 0px;
+    }
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background-color: #000;
+    }
+    span {
+      color: #ff1321;
+    }
+    h1 {
+      color: #fff;
+      font-size: 3em;
+      font-weight: 900;
+      letter-spacing: 1px;
+      overflow: hidden;
+    }
+    h1:before {
+      content: "";
+      position: absolute;
+      left: 80%;
+      width: 120%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent 0%, #000 5%, #000 100%);
+      animation: hide 10s linear forwards infinite;
+    }
+    @keyframes hide {
+      0% {
+        left: 85%;
+      }
+      100% {
+        left: 10%;
+      }
+    }
+    video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 2;
+      pointer-events: none;
+      mix-blend-mode: screen;
+    }
+    /* the animation effect like a particle dissolve was added in here using a video sourced online  */
+    /* animation-effect only hides the heading part from right to left by increasing the length of left-side of pseudo selectors "before" */
+    /* mix-blend mode helps in getting both text and video on same without overlapping  object fit used to cover the whole screen the animation video is designed such */
+    /* different types of animation or perhaps loading animation can be done using this as reference material */
+    /* the video and animation lost the sync when both are put in loop and infinite ,therefore as once to show they can be good display */
+  </style>
+  <body>
+    <video src="/video/particles.mp4" muted autoplay loop></video>
+    <h1><span>WEL</span>COME T<span>O</span> MY P<span>AG</span>E</h1>
+  </body>
+</html>

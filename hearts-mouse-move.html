@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hearts-mouse-move</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      overflow: hidden;
+      height: 100vh;
+      background-color: #000;
+    }
+    span {
+      position: absolute;
+      background: url("/img/heart.png"); /* the image which is created when the mouse is moved across the window */
+      pointer-events: none;
+      transform: translate(-50%, -50%); /* to displace the span element a few px away from mouse */
+      width: 100px;
+      height: 100px;
+      background-size: cover;/* so image is completely is created  */
+      animation: click 1.5s linear infinite;/* so after image is created it remains in page for a few seconds
+       after which it is not visible(opacity:0) and is removed by using js. Also the colour is rotated*/
+    }
+    @keyframes click {
+      0% {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+        filter: hue-rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -1000%);
+        opacity: 0;
+        filter: hue-rotate(720deg); /* at first the the image as it is created after which animation cause
+        its change of colour which lasts some seconds */
+      }
+    }
+  </style>
+  <body>
+    <!-- no direct body is used ,mousemove-event is used to create the hearts image -->
+  </body>
+  <script>
+    document.addEventListener("mousemove", function (e) {
+      var body = document.querySelector("body");
+      var heart = document.createElement("span");
+      var x = e.offsetX;// an irrational number e is used in the function
+      var y = e.offsetY;
+      heart.style.left = x + "px";
+      heart.style.top = y + "px";
+      var size = Math.random() * 100; // to generate a random size of heart span
+      heart.style.width = 20 + size + "px";
+      heart.style.height = 20 + size + "px";// first every property is created to the element is added
+      body.appendChild(heart);
+      // after this the child element of heart is added to body using the method of appendChild as it allows the js variables
+      //  with it's prop in its function parameter
+      setTimeout(function () {
+        heart.remove(); // to remove the created heart element in  js which is created in js which is again created at top of this
+      }, 1000);
+    });
+  </script>
+</html>

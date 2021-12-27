@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>wood text css effect</title>
+  </head>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: url("https://images.pexels.com/photos/172292/pexels-photo-172292.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940https://images.pexels.com/photos/301717/pexels-photo-301717.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+      background-attachment: fixed;
+      background-size: cover;
+    }
+    h1 {
+      font-size: 10em;
+      position: relative;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      text-transform: uppercase;
+      background: url("https://images.pexels.com/photos/172292/pexels-photo-172292.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940https://images.pexels.com/photos/301717/pexels-photo-301717.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+      background-attachment: fixed;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    h1:before {
+      content: attr(data-text);
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      z-index: -1;
+      text-shadow: -5px 5px 20px #000, -10px 10px 30px #000,
+        -20px 15px 40px #000, -25px 20px 50px #000;
+    }
+    /* In this a wooden text blend is given by using same picture for background of body as well as text  */
+    /* additionally the text or heading is given prop of webkit such as webkit background-clip as text which to determine the browser that it is only text which requires the background this is the 
+    important property and webkit background color as transparent */
+    /* also h1 used with before header which as content prop with value attr i.e attribute data text defined by us which is same as the heading */
+/* It is given a specific text-shadow of 4 layers with different negative x offset and positive y offset creating blur by usage of blur radius */
+/* background attachment is termed fixed so as no change take place when resolution is decreased */
+  </style>
+  <body>
+    <h1 data-text="Special text blend">special Text blend</h1>
+  </body>
+</html>

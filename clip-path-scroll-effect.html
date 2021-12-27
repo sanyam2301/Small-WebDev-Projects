@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clip path scroll effect</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background-color: #000;
+    }
+    h1 {
+      position: relative;
+      top: 250px;
+      /* z-index: 2; */
+      color: #fff;
+      background-color: #000;
+      width: 100%;
+      text-align: center;
+      font-family: cursive;
+    }
+    section {
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: url("/img/bg2\ .2.jpg");
+      background-attachment: fixed;
+      background-size: cover;
+      width: 100%;
+      height: 100vh;
+      clip-path: circle(0px at center);
+      /* clip-path: circle(50% at 50% 50%); */
+    }
+    .container {
+      position: relative;
+      margin-top: 200vh;
+      padding: 90px;
+      background-color: #fff;
+    }
+    h3 {
+      /* color: #fff; */
+      font-size: 2.3rem;
+      font-family: Georgia, "Times New Roman", Times, serif;
+      margin-bottom: 24px;
+    }
+    p {
+      /* color: #fff; */
+      font-size: 1.5rem;
+    }
+  </style>
+  <body>
+    <h1>SCROLL DOWN</h1>
+    <section></section>
+    <div class="container">
+      <h3>Lorem, ipsum dolor.</h3>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi in sit
+        reprehenderit voluptate, excepturi fugit labore quas ex maxime dolorum
+        eos deleniti aut omnis ea tempora. Optio aut quae dolor ea harum culpa
+        cum. Lorem, ipsum dolor sit. Lorem ipsum dolor sit amet consectetur
+        adipisicing elit. Exercitationem voluptatibus repudiandae officia
+        ducimus, pariatur aliquam quas vel eaque odio id in? Quaerat aspernatur
+        unde explicabo, inventore repellendus ex, debitis corporis ducimus
+        temporibus dolor adipisci ab, consequatur saepe dolorem est. Obcaecati
+        nam mollitia quidem odit modi!
+      </p>
+    </div>
+    <script type="text/javascript">
+      var section = document.querySelector("section");
+      window.addEventListener("scroll", function () {
+        var value = window.scrollY;
+        section.style.clipPath = "circle(" + value + "px at center)";
+      });
+      //  window Object used to get a number for scrolling in y-axis or x-axis ,his
+      //  number dynamically used in clip paths to produce scroll effect in the page
+    </script>
+  </body>
+</html>

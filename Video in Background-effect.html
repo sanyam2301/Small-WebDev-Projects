@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video in Background-effect</title>
+  </head>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@800;900&display=swap");
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: "Poppins", sans-serif;
+    }
+    .banner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      width: 100%;
+      position: absolute;
+      overflow: hidden;
+    }
+    .banner video{
+        position: absolute;
+        top:0;
+        left:0;
+        width:100%;
+        height: 100%;
+        object-fit: cover;/* to fill the corner if video width is small */
+    }
+    .banner h2{
+        position: absolute;
+        top:0;
+        left:0;/* to create the responsive ,otherwise use top:50%,left:50%, translate */
+        font-size:25em;
+        line-height: 100vh;
+        width:100%;
+        height:100%;
+        background:#FFF;
+        color:#000;
+        mix-blend-mode: screen; /* to mix the screen with video going in behind */
+        text-transform: uppercase;
+        text-align: center;
+    }
+  </style>
+  <body>
+    <div class="banner">
+      <video autoplay muted loop>
+        <source src="video/fencing-vid-small.mp4" type="video/mp4" />
+      </video>
+      <h2>Video</h2>
+    </div>
+  </body>
+</html>

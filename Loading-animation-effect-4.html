@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading-animation-effect-4 </title>
+</head>
+<style>
+    body{margin:0;
+    padding:0;
+    background:#ef4599}
+    .loader{
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform:translate(-50%,-50%);
+        height:200px;
+        width:200px;
+        background-color: #f3f4f6;
+        border-radius: 10px;
+        animation: flip 4s linear infinite;
+    }
+    @keyframes flip {
+        0%{
+            transform:translate(-50%,-50%) perspective(200px) rotateX(0deg) rotateY(0deg);/* perspective property gives off the ditance from user to element , it can be used to create heavy 3d effects  */
+            /* lesser the perspective , more intense id the 3d effect,length is entered */
+        }
+        50%{
+            transform:translate(-50%,-50%) perspective(200px) rotateX(-180deg) rotateY(0deg);
+        }
+        100%{
+            transform:translate(-50%,-50%) perspective(200px) rotateX(-180deg) rotateY(-180deg);
+        }
+    }
+</style>
+<body>
+<div class="loader"></div>
+</body>
+</html>
